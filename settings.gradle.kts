@@ -6,6 +6,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "study-oidc-spring"
 
+include("resource-server-reactive")
 include("resource-server-servlet")
 
 gradle.beforeProject {
