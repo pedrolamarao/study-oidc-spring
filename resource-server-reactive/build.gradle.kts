@@ -1,7 +1,7 @@
 plugins {
     java
-    id("org.springframework.boot") version("4.0.1")
-    id("io.spring.dependency-management") version("1.1.7")
+    alias(libs.plugins.org.springframework.boot)
+    alias(libs.plugins.io.spring.dependency.management)
 }
 
 java {
