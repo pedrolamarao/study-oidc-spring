@@ -19,6 +19,7 @@ versioning {
     build.add(gitRevision)
 }
 
+rootProject.name = "study-oauth2-spring"
 
 include("resource-server-reactive")
 include("resource-server-servlet")
