@@ -1,15 +1,24 @@
+pluginManagement {
+    includeBuild("gradle/plugins")
+}
+
+plugins {
+    id("br.dev.purpura.versioning")
+}
+
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
     }
 }
 
-rootProject.name = "study-oidc-spring"
+versioning {
+    major = "1"
+    minor = "0"
+    build.add(gitCount)
+    build.add(gitRevision)
+}
+
 
 include("resource-server-reactive")
 include("resource-server-servlet")
-
-gradle.beforeProject {
-    group = "dev.purple"
-    version = "1.0-SNAPSHOT"
-}
