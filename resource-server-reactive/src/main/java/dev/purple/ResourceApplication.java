@@ -26,8 +26,8 @@ public class ResourceApplication
         return String.format("Hello, %s!", jwt.getSubject());
     }
 
-    @Value("${app.oauth2.scope-prefix:dev.purple}")
-    String scopePrefix;
+    @Value("${br.dev.purpura.study.oauth2.namespace}")
+    String authzNamespace;
 
     @Bean
     public SecurityWebFilterChain securityFilterChain (ServerHttpSecurity http)
@@ -35,7 +35,7 @@ public class ResourceApplication
         // @formatter:off
         http
             .authorizeExchange(authorize -> authorize
-                .pathMatchers("/**").access(hasScope(this.scopePrefix+".read"))
+                .pathMatchers("/**").access(hasScope(authzNamespace+".read"))
                 .anyExchange().authenticated()
             )
             .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults()));

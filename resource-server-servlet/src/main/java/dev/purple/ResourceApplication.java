@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -27,7 +26,7 @@ public class ResourceApplication
         return String.format("Hello, %s!", jwt.getSubject());
     }
 
-    @Value("${app.oauth2.scope-prefix:dev.purple}")
+    @Value("${br.dev.purpura.study.oauth2.namespace}")
     String scopePrefix;
 
     @Bean
